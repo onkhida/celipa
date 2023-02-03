@@ -4,6 +4,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
+import Icon from "react-native-ionicons";
+
 import HomeScreen from "./screens/HomeScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import ReceiptScreen from "./screens/ReceiptScreen";
@@ -19,15 +21,16 @@ export default function App() {
             let iconName;
 
             if (route.name === "Home") {
-              iconName = focused ? "ios-home-circle" : "ios-home-circle";
+              iconName = "home";
             } else if (route.name === "Profile") {
-              iconName = focused ? "ios-contact" : "ios-contact";
+              iconName = "contact";
             } else if (route.name === "Receipt") {
-              iconName = focused ? "ios-list" : "ios-list-outline";
+              iconName = "list";
             }
 
-            // You can return any component that you like here!
-            return <Ionicons name={iconName} size={size} color={color} />;
+            // Tab Icons and Colors
+            // return <Ionicons name={iconName} size={size} color={color} />;
+            return <Icon ios={`ios-${iconName}`} android={`md-${iconName}`} />;
           },
 
           tabBarActiveTintColor: "#219AF4",
